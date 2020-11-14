@@ -11,6 +11,10 @@
 |
 */
 
+use App\Comment;
+
 Route::get('/', function () {
+    $comments = Comment::all();
+    // return view('welcome', compact('comments'));
     return view('welcome');
 });

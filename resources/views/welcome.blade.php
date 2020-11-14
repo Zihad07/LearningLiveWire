@@ -10,6 +10,7 @@
 </head>
 <body>
     {{-- @livewire('counter') --}}
+    {{-- @livewire('comments', ['comments' => $comments]) --}}
     @livewire('comments')
     @livewireScripts
 </body>

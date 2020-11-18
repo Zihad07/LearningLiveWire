@@ -11,6 +11,8 @@ class Comments extends Component
 {
     public $newComment;
 
+
+
     protected $rules = ['newComment' => 'required|max:255'];
     protected $messages = [
         'newComment.required' => 'Comment Should not be empty.',
@@ -72,6 +74,14 @@ class Comments extends Component
             // $this->mount();
             $this->newComment = '';
 
+    }
+
+    public function remove($comment) {
+        $comment_delete = Comment::find($comment);
+        $comment_delete->delete();
+        // $this->comments = $this->comments->where('id', '!=', $comment);
+        $this->comments= $this->comments->filter(function($each_comment) use($comment){ return $each_comment->id != $comment;});
+        // dd($this->comments);
     }
     public function render()
     {

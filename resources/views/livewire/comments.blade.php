@@ -16,17 +16,24 @@
 
            @foreach ($comments as $comment)
             <div class="rounded border shadow p-3 my-2">
-                <div class="flex justify-start my-2">
-                    {{-- <p class="font-bold text-lg">{{ $comment['creator'] }}</p> --}}
-                    <p class="font-bold text-lg">{{ $comment->creator->name }}</p>
-                    {{-- <p class="mx-3 py1 text-xs text-gray-500 font-semibold">{{ $comment['created_at'] }}</p> --}}
-                    <p class="mx-3 py1 text-xs text-gray-500 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
+              <div class="flex justify-between">
+                <div>
+                    <div class="flex justify-start my-2">
+                        {{-- <p class="font-bold text-lg">{{ $comment['creator'] }}</p> --}}
+                        <p class="font-bold text-lg">{{ $comment->creator->name }}</p>
+                        {{-- <p class="mx-3 py1 text-xs text-gray-500 font-semibold">{{ $comment['created_at'] }}</p> --}}
+                        <p class="mx-3 py1 text-xs text-gray-500 font-semibold">{{ $comment->created_at->diffForHumans() }}</p>
+                    </div>
+
+                    <p class="text-gray-800">
+                        {{-- {{ $comment['body'] }} --}}
+                        {{ $comment->body }}
+                    </p>
                 </div>
 
-                <p class="text-gray-800">
-                    {{-- {{ $comment['body'] }} --}}
-                    {{ $comment->body }}
-                </p>
+                <i class="fas fa-times text-red-200 hover:text-red-600 cursor" wire:click="remove({{ $comment->id }})"></i>
+              </div>
+
             </div>
            @endforeach
         </div>

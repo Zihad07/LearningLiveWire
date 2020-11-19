@@ -3,6 +3,13 @@
         <div class="w-6/12">
             {{-- <h1 class="my-10 text-3xl">Comments - {{ $newComment }}</h1> --}}
             <h1 class="my-10 text-3xl">Comments</h1>
+            <div>
+                @if(session()->has('message'))
+                    <div class="bg-green-300 text-white-700 p-3">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            </div>
             @error('newComment') <span class="error text-red-500 text-xs">{{ $message }}</span> @enderror
             <form class="my-4 flex" wire:submit.prevent = "addComment">
                 {{-- <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" wire:model="newComment" placeholder="What's in your mind."> --}}
@@ -36,6 +43,8 @@
 
             </div>
            @endforeach
+
+           {{ $comments->links('custom-pagination-links-view') }}
         </div>
 
     </div>

@@ -13,9 +13,13 @@
 </head>
 <body class="flex flex-wrap justify-center">
 
-    <div class="flex w-full justify-left p-4 bg-purple-900 text-white">
+    <div class="flex w-full justify-between py-4 bg-purple-900 text-white" style="padding-left: 5%; padding-right: 5%;">
         <a href="/" class="">Home</a>
-        <a href="/login" class="pl-2">Login</a>
+
+        <div>
+            <a href="/login" class="pl-2">Login</a>
+            <a href="/register" class="pl-2">Register</a>
+        </div>
     </div>
     {{-- @livewire('counter') --}}
     {{-- @livewire('comments', ['comments' => $comments]) --}}

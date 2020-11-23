@@ -16,10 +16,16 @@
     <div class="flex w-full justify-between py-4 bg-purple-900 text-white" style="padding-left: 5%; padding-right: 5%;">
         <a href="/" class="">Home</a>
 
-        <div>
-            <a href="/login" class="pl-2">Login</a>
-            <a href="/register" class="pl-2">Register</a>
-        </div>
+        @auth
+            @livewire('logout')
+        @endauth
+
+        @guest
+            <div>
+                <a href="/login" class="pl-2">Login</a>
+                <a href="/register" class="pl-2">Register</a>
+            </div>
+        @endguest
     </div>
     {{-- @livewire('counter') --}}
     {{-- @livewire('comments', ['comments' => $comments]) --}}
